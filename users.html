@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>User Management</title>
+<link rel="stylesheet" href="style.css">
+<script src="script.js"></script>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+<h2>RBAC</h2>
+<a href="dashboard.html">Dashboard</a>
+<a id="usersMenu" href="users.html">Users</a>
+<a href="operator.html">Devices</a>
+<a onclick="logout()">Logout</a>
+</div>
+
+
+<!-- MAIN CONTENT -->
+<div class="main">
+
+<h1>User Management</h1>
+
+<button id="addUserBtn" onclick="openAddUserModal()">+ Add User</button>
+
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>Role</th>
+<th>Actions</th>
+</tr>
+</thead>
+
+<tbody id="usersTableBody"></tbody>
+</table>
+
+</div>
+
+</div>
+
+
+<!-- ADD USER MODAL (OUTSIDE SIDEBAR + MAIN) -->
+<!-- ADD / EDIT USER MODAL -->
+<div id="addUserModal" style="
+display:none;
+position:fixed;
+top:50%;
+left:50%;
+transform:translate(-50%,-50%);
+background:white;
+padding:25px;
+border-radius:8px;
+box-shadow:0 0 10px rgba(0,0,0,0.3);
+z-index:1000;
+">
+<h3 id="modalTitle">Add New User</h3>
+
+<input id="newName" placeholder="Name"><br><br>
+
+<input id="newPassword" type="password" placeholder="Password"><br><br>
+
+<select id="newRole">
+<option value="Admin">Admin</option>
+<option value="Operator">Operator</option>
+<option value="Viewer">Viewer</option>
+</select>
+
+<br><br>
+
+<button id="saveUserBtn">Create User</button>
+<button onclick="closeAddUserModal()">Cancel</button>
+
+</div>
+
+</body>
+</html>
